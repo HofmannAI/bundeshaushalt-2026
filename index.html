@@ -59,10 +59,11 @@
   .such-erg .sm{font-size:11.5px;color:var(--sub);margin-top:1px;}
   .such-leer{padding:12px 14px;font-size:13px;color:var(--sub);}
 
-  .controls{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 2px;align-items:center;}
-  .modus{display:flex;background:var(--fill2);border-radius:11px;padding:2.5px;width:fit-content;}
+  .controls{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 2px;align-items:center;}
+  .modus{display:flex;background:var(--fill2);border-radius:10px;padding:2px;width:fit-content;}
   .modus button{appearance:none;border:0;background:transparent;cursor:pointer;
-    padding:8px 13px;font-size:13px;font-weight:600;color:var(--sub);border-radius:9px;transition:color .18s;}
+    padding:6px 10px;font-size:12px;font-weight:600;color:var(--sub);border-radius:8px;transition:color .18s;
+    white-space:nowrap;}
   .modus button.aktiv{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.10),0 3px 8px rgba(0,0,0,.06);}
   .modus button:focus-visible{outline:2px solid var(--tint);outline-offset:-2px;}
   .sicht-sub{font-size:12.5px;color:var(--sub);margin:6px 0 4px;}
@@ -123,12 +124,55 @@
   #donut path.seg{cursor:pointer;transition:opacity .15s;}
 
   /* Sortier-/Filter-/Einheiten-Zeile */
-  .listtools{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:2px 4px 12px;}
+  .listtools{display:flex;gap:6px;align-items:center;margin:2px 4px 10px;}
   .lt{appearance:none;border:0;cursor:pointer;background:var(--fill);color:var(--sub);
     border-radius:999px;padding:6px 11px;font-size:12px;font-weight:600;}
   .lt.aktiv{background:var(--ink);color:#fff;}
   .lt .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px;vertical-align:1px;}
   .lt-sep{width:.5px;height:18px;background:var(--hair);margin:0 3px;}
+  .lt.wide{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .ltico{margin-right:5px;opacity:.8;}
+  /* Swipe als Hauptaktion */
+  .swipe-cta{display:flex;align-items:center;gap:13px;width:100%;margin:14px 0 4px;cursor:pointer;
+    appearance:none;border:0;border-radius:16px;padding:15px 16px;text-align:left;font:inherit;
+    background:linear-gradient(135deg,#0A84FF,#0060DF);color:#fff;
+    box-shadow:0 6px 20px rgba(10,132,255,.28);transition:transform .15s ease,box-shadow .15s ease;}
+  .swipe-cta:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(10,132,255,.34);}
+  .swipe-cta:active{transform:translateY(0) scale(.995);}
+  .sc-ico{font-size:22px;width:40px;height:40px;flex-shrink:0;border-radius:12px;
+    background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;}
+  .sc-txt{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1;}
+  .sc-txt b{font-size:16px;font-weight:700;letter-spacing:-.01em;}
+  .sc-txt small{font-size:12.5px;opacity:.86;line-height:1.3;}
+  .sc-pfeil{font-size:22px;opacity:.7;flex-shrink:0;}
+  /* Sichten: eine Zeile, seitlich scrollbar statt Umbruch */
+  .controls{overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none;-ms-overflow-style:none;}
+  .controls::-webkit-scrollbar{display:none;}
+  /* Ansicht-Sheet */
+  .ag{margin-bottom:14px;}
+  .ag-t{font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--sub);margin-bottom:7px;}
+  .ag-r{display:flex;gap:7px;flex-wrap:wrap;}
+  .agb{appearance:none;border:0;cursor:pointer;background:var(--fill);color:var(--sub);
+    border-radius:10px;padding:9px 13px;font:inherit;font-size:13px;font-weight:600;}
+  .agb.aktiv{background:var(--ink);color:#fff;}
+  .agb .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:1px;}
+  /* Swipe-Infobereich */
+  .sw-ibtn{position:absolute;top:12px;right:12px;width:30px;height:30px;border-radius:50%;border:0;
+    background:var(--fill2);color:var(--sub);font-size:15px;font-weight:800;font-family:Georgia,serif;
+    cursor:pointer;line-height:30px;padding:0;}
+  .sw-ibtn.offen{background:var(--tint);color:#fff;}
+  .sw-detail{margin-top:14px;padding-top:12px;border-top:.5px solid var(--hair);text-align:left;
+    max-height:38vh;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+  .swd-b{margin-bottom:12px;}
+  .swd-t{font-size:10.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--sub);margin-bottom:3px;}
+  .swd-x{font-size:13px;line-height:1.45;color:var(--ink);}
+  .swd-auf{appearance:none;border:0;background:var(--fill);border-radius:9px;padding:8px 11px;width:100%;
+    text-align:left;font:inherit;font-size:12.5px;font-weight:700;color:var(--tint);cursor:pointer;}
+  .swd-liste{margin-top:7px;}
+  .swd-z{display:flex;justify-content:space-between;gap:10px;font-size:12.5px;padding:5px 2px;
+    border-bottom:.5px solid var(--hair);color:var(--ink);}
+  .swd-mehr{font-size:12px;color:var(--sub);padding:5px 2px;}
+  .sw-karte .chip{margin-bottom:6px;display:inline-block;}
 
   .fluss{display:flex;align-items:stretch;}
   .svgbox{display:none;}
@@ -398,13 +442,18 @@
     <button class="icnbtn" id="btnHilfe" aria-label="Kurzanleitung anzeigen">?</button>
   </header>
 
+  <button class="swipe-cta" id="btnSwipe">
+    <span class="sc-ico" aria-hidden="true">◉</span>
+    <span class="sc-txt"><b>Swipe-Modus starten</b><small>Posten für Posten entscheiden: kürzen, behalten, erhöhen</small></span>
+    <span class="sc-pfeil" aria-hidden="true">›</span>
+  </button>
+
   <div class="tools">
     <div class="suche">
       <span class="lupe" aria-hidden="true"></span>
       <input id="sucheInput" type="search" placeholder="Position suchen — z. B. Elterngeld" autocomplete="off" aria-label="Haushaltsposition suchen">
       <div class="such-erg" id="suchErg" hidden></div>
     </div>
-    <button class="pillbtn blau" id="btnSwipe">◉ Swipe</button>
     <button class="pillbtn" id="btnQuiz">Quiz</button>
   </div>
 
@@ -415,7 +464,7 @@
       <button id="vFkt" role="tab" aria-selected="false">Aufgaben</button>
       <button id="vEin" role="tab" aria-selected="false">Einnahmen</button>
     </div>
-    <div class="modus" id="modusWahl" role="tablist" aria-label="Datenumfang">
+    <div class="modus" id="modusWahl" role="tablist" aria-label="Datenumfang" hidden>
       <button id="mKern" class="aktiv" role="tab" aria-selected="true">Kernhaushalt</button>
       <button id="mSV" role="tab" aria-selected="false">+ Sondervermögen</button>
     </div>
@@ -476,6 +525,7 @@
 <div class="sheet quiz" id="sheetQuiz" hidden></div>
 <div class="sheet" id="sheetCode" hidden></div>
 <div class="sheet" id="sheetVgl" hidden></div>
+<div class="sheet" id="sheetAnsicht" hidden></div>
 
 <div class="saldo" id="saldoBar">
   <div class="saldo-innen">
@@ -616,7 +666,7 @@ function setView(v,skip){
     $(id).classList.toggle('aktiv',k===v);
     $(id).setAttribute('aria-selected',k===v);
   });
-  $('modusWahl').style.display=(v==='ein')?'none':'';
+
   if(!skip)render();
 }
 function drill(node){
@@ -729,7 +779,7 @@ document.addEventListener('click',ev=>{
 
 /* ========== Sheets ========== */
 function openSheet(id){$('scrim').hidden=false;$(id).hidden=false;}
-function closeSheets(){$('scrim').hidden=true;['sheetChanges','sheetGloss','sheetQuiz','sheetCode','sheetVgl'].forEach(i=>$(i).hidden=true);}
+function closeSheets(){$('scrim').hidden=true;['sheetChanges','sheetGloss','sheetQuiz','sheetCode','sheetVgl','sheetAnsicht'].forEach(i=>$(i).hidden=true);}
 $('scrim').onclick=closeSheets;
 document.addEventListener('click',ev=>{if(ev.target.closest('[data-close]'))closeSheets();});
 
@@ -884,22 +934,47 @@ $('btnChanges').onclick=()=>{renderPresets();renderChanges();openSheet('sheetCha
 $('btnReset').onclick=()=>{adj.clear();updateSimUI();writeHash();closeSheets();};
 
 /* ========== Quiz ========== */
-const QUIZ_IDS=[
+const QUIZ_POOL=[
  ['f_vert','Verteidigung — Truppe, Waffen, Ukraine-Hilfe'],
  ['t110168112','das Bürgergeld (nur die Geldleistung)'],
  ['a_zins','Zinsen auf die Staatsschulden'],
  ['e23','Entwicklungszusammenarbeit weltweit'],
  ['f_bild','Bildung, Forschung & Kultur zusammen'],
+ ['t110263681','den Bundeszuschuss zur Rente'],
+ ['e05','das Auswärtige Amt samt aller Botschaften'],
+ ['e06','Inneres: Polizei, Katastrophenschutz, Migration'],
+ ['f_ges','Gesundheit und Pflege'],
+ ['f_verk','Verkehr: Schiene, Straße, Wasserwege'],
+ ['t170168102','das Elterngeld'],
+ ['e12','das Verkehrsministerium insgesamt'],
+ ['f_wohn','Wohnen und Stadtentwicklung'],
+ ['a_pers','die Gehälter aller Bundesbediensteten'],
+ ['a_pens','die Pensionen ehemaliger Beamter'],
+ ['t150163606','den Bundeszuschuss an die Krankenkassen'],
+ ['e10','Landwirtschaft und Ernährung'],
+ ['f_agrar','Landwirtschaft insgesamt'],
+ ['t320557501','die Zinsen allein für Bundesanleihen'],
+ ['e30','Forschung und Technologie'],
+ ['t110163211','Miete und Heizung für Bürgergeld-Haushalte'],
+ ['e17','Familie, Senioren, Frauen und Jugend'],
 ];
+let QUIZ_IDS=[];
+function quizMischen(){
+  const pool=QUIZ_POOL.filter(([id])=>ID2NODE.get(id));
+  for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}
+  QUIZ_IDS=pool.slice(0,5);
+}
 let quizRunde=0,quizPunkte=0;
-function quizStart(){quizRunde=0;quizPunkte=0;quizFrage();openSheet('sheetQuiz');}
+function quizStart(){quizMischen();quizRunde=0;quizPunkte=0;quizFrage();openSheet('sheetQuiz');}
 function quizFrage(){
   const sh=$('sheetQuiz');
   if(quizRunde>=QUIZ_IDS.length){
     sh.innerHTML='<h3>Dein Ergebnis <button class="x" data-close aria-label="Schließen">×</button></h3>'
       +'<div class="qaufl" style="text-align:center"><b>'+quizPunkte+' von '+QUIZ_IDS.length+' Treffern</b><br>'
       +(quizPunkte>=4?'Haushaltsprofi! Kaum jemand schätzt so genau.':quizPunkte>=2?'Solide — die Größenordnungen überraschen fast jeden.':'Willkommen im Club: Die echten Zahlen überraschen fast alle.')
-      +'</div><button class="qbtn" id="qErkunden">Jetzt selbst erkunden</button>';
+      +'</div><button class="qbtn" id="qNochmal">Neue Fragen</button>'
+      +'<button class="pillbtn" id="qErkunden" style="width:100%;margin-top:8px">Jetzt selbst erkunden</button>';
+    sh.querySelector('#qNochmal').onclick=()=>quizStart();
     sh.querySelector('#qErkunden').onclick=()=>closeSheets();
     return;
   }
@@ -909,11 +984,14 @@ function quizFrage(){
   const total=DATA.views.min.kern.v;
   const perCapTotal=total*1000/EINWOHNER;
   const wahr=n.v*1000/EINWOHNER;
+  const smax=Math.max(200,Math.min(2500,Math.round(wahr*3/50)*50));
+  const sstep=smax>1000?20:smax>400?10:5;
+  const sstart=Math.round(smax/4/sstep)*sstep;
   sh.innerHTML='<h3>Schätz mal! ('+(quizRunde+1)+'/'+QUIZ_IDS.length+') <button class="x" data-close aria-label="Schließen">×</button></h3>'
     +'<div class="qfrage">Wie viel deiner '+fmtEuro(perCapTotal)+' pro Jahr gehen in '+esc(label)+'?</div>'
     +'<div class="qsub">Zieh den Regler auf deinen Tipp.</div>'
-    +'<div class="qwert num" id="qWert">300 €</div>'
-    +'<input type="range" id="qSlider" min="0" max="1600" step="10" value="300" aria-label="Dein Tipp in Euro">'
+    +'<div class="qwert num" id="qWert">'+fmtDE.format(sstart)+' €</div>'
+    +'<input type="range" id="qSlider" min="0" max="'+smax+'" step="'+sstep+'" value="'+sstart+'" aria-label="Dein Tipp in Euro">'
     +'<button class="qbtn" id="qAufl">Auflösen</button>'
     +'<div class="qpunkte">'+quizPunkte+' Treffer bisher</div>';
   const sl=sh.querySelector('#qSlider'),w=sh.querySelector('#qWert');
@@ -1047,26 +1125,43 @@ const BIND_COL={2:'#8E8E93',1:'#B25000',0:'#248A3D'};
 /* ========== Listen-Werkzeuge ========== */
 function renderListtools(){
   const lt=$('listtools');lt.innerHTML='';
-  const mk=(txt,aktiv,fn,dot)=>{
-    const b=document.createElement('button');b.className='lt'+(aktiv?' aktiv':'');
-    b.innerHTML=(dot?'<span class="dot" style="background:'+dot+'"></span>':'')+txt;
-    b.onclick=fn;lt.appendChild(b);return b;
+  const mk=(txt,aktiv,fn,cls)=>{
+    const b=document.createElement('button');b.className='lt'+(aktiv?' aktiv':'')+(cls?' '+cls:'');
+    b.innerHTML=txt;b.onclick=fn;lt.appendChild(b);return b;
   };
-  const dt=mk('Detail ab 10 Mio.',schwelle===10000,()=>{schwelle=(schwelle===10000?100000:10000);render();writeHash();});
-  const sep0=document.createElement('span');sep0.className='lt-sep';lt.appendChild(sep0);
-  mk('Größe',sortBy==='v',()=>{sortBy='v';render();});
-  mk('A–Z',sortBy==='az',()=>{sortBy='az';render();});
-  const sep=document.createElement('span');sep.className='lt-sep';lt.appendChild(sep);
-  mk('Mrd. €',unit==='eur',()=>{unit='eur';render();writeHash();});
-  mk('pro Kopf',unit==='pk',()=>{unit='pk';render();writeHash();});
-  mk('in Schulen',unit==='schule',()=>{unit='schule';render();writeHash();});
-  if(view!=='ein'){
-    const sep2=document.createElement('span');sep2.className='lt-sep';lt.appendChild(sep2);
-    mk('Alle',filterB===null,()=>{filterB=null;render();});
-    mk('frei',filterB===0,()=>{filterB=0;render();},BIND_COL[0]);
-    mk('per Gesetz',filterB===1,()=>{filterB=1;render();},BIND_COL[1]);
-    mk('fest',filterB===2,()=>{filterB=2;render();},BIND_COL[2]);
-  }
+  mk(schwelle===10000?'Detail: alle ab 10 Mio.':'Detail',schwelle===10000,
+     ()=>{schwelle=(schwelle===10000?100000:10000);render();writeHash();});
+  // Zusammenfassung der aktiven Einstellungen
+  const teile=[];
+  if(sortBy==='az')teile.push('A–Z');
+  if(unit==='pk')teile.push('pro Kopf'); else if(unit==='schule')teile.push('in Schulen');
+  if(filterB!==null)teile.push(BIND_TXT[filterB][1]);
+  if(mode==='sv')teile.unshift('+ Sondervermögen');
+  mk('<span class="ltico">☰</span>Ansicht'+(teile.length?' · '+teile.join(' · '):''),teile.length>0,()=>zeigeAnsicht(),'wide');
+}
+function zeigeAnsicht(){
+  const sh=$('sheetAnsicht');
+  const grp=(titel,opts,aktivWert,setzen)=>
+    '<div class="ag"><div class="ag-t">'+titel+'</div><div class="ag-r">'
+    +opts.map(o=>'<button class="agb'+(o[0]===aktivWert?' aktiv':'')+'" data-set="'+setzen+'" data-val="'+o[0]+'">'
+      +(o[2]?'<span class="dot" style="background:'+o[2]+'"></span>':'')+o[1]+'</button>').join('')
+    +'</div></div>';
+  sh.innerHTML='<h3>Ansicht <button class="x" data-close aria-label="Schließen">×</button></h3>'
+    +grp('Sortierung',[['v','Größe'],['az','A–Z']],sortBy,'sort')
+    +grp('Einheit',[['eur','Mrd. €'],['pk','pro Kopf'],['schule','in Schulen']],unit,'unit')
+    +(view!=='ein'?grp('Umfang',[['kern','Kernhaushalt'],['sv','+ Sondervermögen']],mode,'mode'):'')
+    +(view!=='ein'?grp('Nur zeigen',[['null','Alle'],['0',BIND_TXT[0][1],BIND_COL[0]],['1',BIND_TXT[1][1],BIND_COL[1]],['2',BIND_TXT[2][1],BIND_COL[2]]],String(filterB),'filter'):'');
+  sh.querySelectorAll('.agb').forEach(b=>{
+    b.onclick=()=>{
+      const v=b.dataset.val;
+      if(b.dataset.set==='sort')sortBy=v;
+      else if(b.dataset.set==='unit')unit=v;
+      else if(b.dataset.set==='mode'){setMode(v);zeigeAnsicht();return;}
+      else filterB=(v==='null'?null:+v);
+      render();writeHash();zeigeAnsicht();
+    };
+  });
+  openSheet('sheetAnsicht');
 }
 function bindMax(n){
   if(typeof n.b==='number')return n.b;
@@ -1504,19 +1599,46 @@ function zeigeKarte(){
     return;
   }
   const k=deck[deckIdx];
-  const bind=(typeof k.b==='number')?k.b:null;
+  const bind=(typeof k.b==='number')?k.b:bindMax(k);
+  const kinder=(k.children||[]).filter(c=>c.v>0).sort((a,b2)=>b2.v-a.v);
+  const infoBlocks=[]
+    .concat(bind!==null?[['Wie fest gebunden?',BIND_TXT[bind][1]+' — '+((GLOSS['bind'+bind]||[])[1]||'')]]:[])
+    .concat(k.recht?[['Rechtsgrundlage',k.recht]]:[])
+    .concat(k.kuerz?[['Wenn man hier kürzt',k.kuerz]]:[])
+    .concat(k.zahl?[['Zum Einordnen',k.zahl]]:[]);
   b.innerHTML='<div class="sw-karte" id="swKarte">'
+    +'<button class="sw-ibtn" id="swInfo" aria-label="Infos zu dieser Position">i</button>'
     +(icnHtml(k.id,'hsl(211 42% 46%)',64)?'<div class="sw-icon">'+icnHtml(k.id,'hsl(211 42% 46%)',64)+'</div>':'')
     +'<div class="sw-name">'+esc(k.name)+'</div>'
     +'<div class="sw-betrag num">'+fmt(k.v)+'</div>'
     +'<div class="sw-anteil num">dein Anteil ≈ '+fmtEuro(k.v*1000/EINWOHNER)+' im Jahr</div>'
-    +(k.org?'<span class="chip" style="margin-bottom:6px;display:inline-block">'+esc(k.org)+'</span>':'')
+    +(k.org?'<span class="chip">'+esc(k.org)+'</span>':'')
     +(bind!==null?'<span class="bindchip '+BIND_TXT[bind][0]+'"><span class="bd" style="background:'+BIND_COL[bind]+'"></span>'+BIND_TXT[bind][1]+'</span>':'')
     +(k.info?'<div class="sw-info">'+esc(k.info)+'</div>':'')
+    +'<div class="sw-detail" id="swDetail" hidden>'
+      +infoBlocks.map(([t,txt])=>'<div class="swd-b"><div class="swd-t">'+t+'</div><div class="swd-x">'+esc(txt)+'</div></div>').join('')
+      +(kinder.length?'<div class="swd-b"><button class="swd-auf" id="swAuf">Was steckt darunter? ('+kinder.length+') ›</button>'
+        +'<div class="swd-liste" id="swListe" hidden>'
+        +kinder.slice(0,10).map(c=>'<div class="swd-z"><span>'+(c.approx?'≈ ':'')+esc(c.name)+'</span><b class="num">'+fmt(c.v)+'</b></div>').join('')
+        +(kinder.length>10?'<div class="swd-mehr">… und '+(kinder.length-10)+' weitere</div>':'')
+        +'</div></div>':'')
+      +(!infoBlocks.length&&!kinder.length?'<div class="swd-x">Zu dieser Position liegen keine weiteren Angaben vor.</div>':'')
+    +'</div>'
     +'<div class="sw-stempel kuerzen">−'+swipeStep+' %</div>'
     +'<div class="sw-stempel mehr">+'+swipeStep+' %</div>'
     +'<div class="sw-stempel ok">bleibt</div>'
     +'</div>';
+  const det=b.querySelector('#swDetail');
+  b.querySelector('#swInfo').onclick=ev=>{
+    ev.stopPropagation();
+    det.hidden=!det.hidden;
+    b.querySelector('#swInfo').classList.toggle('offen',!det.hidden);
+  };
+  const auf=b.querySelector('#swAuf');
+  if(auf)auf.onclick=ev=>{ev.stopPropagation();const l=b.querySelector('#swListe');l.hidden=!l.hidden;
+    auf.textContent=(l.hidden?'Was steckt darunter? ('+kinder.length+') ›':'Unterpositionen ausblenden ⌄');};
+  // Im Infobereich soll gescrollt, nicht gewischt werden
+  ['touchstart','mousedown'].forEach(e=>det.addEventListener(e,ev=>ev.stopPropagation()));
   const karte=b.querySelector('#swKarte');
   let sx=0,sy=0,dx=0,dy=0,aktiv=false;
   const start=e=>{aktiv=true;const p=e.touches?e.touches[0]:e;sx=p.clientX;sy=p.clientY;karte.style.transition='none';};
